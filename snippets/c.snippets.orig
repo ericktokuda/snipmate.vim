@@ -1,3 +1,6 @@
+snippet gdb 
+	g_debug("%s", $1);
+
 # main()
 snippet main
 	int main(int argc, const char *argv[])
@@ -61,8 +64,8 @@ snippet wh
 	}
 # For Loop
 snippet for
-	for (int ${2:i} = 0; $2 < ${1:count}; $2++) {
-		${3:/* code */}
+	for (${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
+		${4:/* code */}
 	}
 # Custom For Loop
 snippet forr
@@ -101,8 +104,6 @@ snippet tde
 # dynamic `...`
 snippet pr
 	printf("${1:%s}\n"${2});${3}
-snippet check
-	printf("checkpoint-%s\n", __func__);
 # fprintf (again, this isn't as nice as TextMate's version, but it works)
 snippet fpr
 	fprintf(${1:stderr}, "${2:%s}\n"${3});${4}
@@ -110,8 +111,3 @@ snippet .
 	[${1}]${2}
 snippet un
 	unsigned
-#Added by Eric
-snippet gdb 
-	g_debug("On '%s', line '%d', ${1:varName}:'%${2:s}' ", __FILE__, __LINE__, ${3:var});
-snippet cg 
-	const gchar *${1:var};

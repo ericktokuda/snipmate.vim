@@ -1,115 +1,171 @@
-# \begin{}...\end{}
+# Begin...End
 snippet begin
 	\begin{${1:env}}
 		${2}
 	\end{$1}
-# Tabular
-snippet tab
-	\begin{${1:tabular}}{${2:c}}
-	${3}
-	\end{$1}
-# Align(ed)
-snippet ali
-	\begin{align${1:ed}}
-		${2}
-	\end{align$1}
-# Gather(ed)
-snippet gat
-	\begin{gather${1:ed}}
-		${2}
-	\end{gather$1}
-# Equation
-snippet eq
-	\begin{equation}
-		${1}
-	\end{equation}
-# Unnumbered Equation
-snippet \
-	\\[
-		${1}
-	\\]
-# Enumerate
-snippet enum
-	\begin{enumerate}
-		\item ${1}
-	\end{enumerate}
-# Itemize
-snippet item
-	\begin{itemize}
-		\item ${1}
-	\end{itemize}
-# Description
-snippet desc
-	\begin{description}
-		\item[${1}] ${2}
-	\end{description}
-# Matrix
-snippet mat
-	\begin{${1:p/b/v/V/B/small}matrix}
-		${2}
-	\end{$1matrix}
+# Bibliography
+snippet bib
+	\bibliography{${1:name of file}}
+	\bibliographystyle{plain}
+	${2}
 # Cases
 snippet cas
 	\begin{cases}
 		${1:equation}, &\text{ if }${2:case}\\
 		${3}
 	\end{cases}
-# Split
-snippet spl
-	\begin{split}
-		${1}
-	\end{split}
-# Part
-snippet part
-	\part{${1:part name}} % (fold)
-	\label{prt:${2:$1}}
-	${3}
-	% part $2 (end)
 # Chapter
 snippet cha
-	\chapter{${1:chapter name}} % (fold)
+	\chapter{${1:chapter name}} 
 	\label{cha:${2:$1}}
 	${3}
 	% chapter $2 (end)
-# Section
-snippet sec
-	\section{${1:section name}} % (fold)
-	\label{sec:${2:$1}}
-	${3}
-	% section $2 (end)
-# Sub Section
-snippet sub
-	\subsection{${1:subsection name}} % (fold)
-	\label{sub:${2:$1}}
-	${3}
-	% subsection $2 (end)
-# Sub Sub Section
-snippet subs
-	\subsubsection{${1:subsubsection name}} % (fold)
-	\label{ssub:${2:$1}}
-	${3}
-	% subsubsection $2 (end)
+# Cite
+snippet cite
+	\cite{${1:reference}}${2}
+snippet eq
+	\begin{equation}
+		${1}
+	\end{equation}
+# Unnumbered Equation
+snippet enum
+	\begin{enumerate}
+		\item ${1}
+	\end{enumerate}
+# Emph
+snippet emph
+	\emph{${1:term}} ${2}
+# Include figure
+snippet fig
+	\begin{figure}[ht]
+		\centering
+		\includegraphics[width=0.5\textwidth]{${1:src}}
+		\caption{${2:caption}}
+		\label{fig:${3:fig}}
+	\end{figure}
+snippet frac
+	\frac{${1}}{${2}}${3}
+# Itemize
+snippet item
+	\begin{itemize}
+		\item ${1}
+	\end{itemize}
+# Matrix
+snippet mat
+	\begin{${1:p/b/v/V/B/small}matrix}
+		${2}
+	\end{$1matrix}
+# Minipage
+snippet minipage
+	\begin{minipage}[c]{${1:1.5cm}}
+
+		${3}
+	\end{minipage}
+# Multifig
+snippet multifig
+	% move the preamble
+	%\usepackage{caption}
+	%\usepackage{subcaption}
+
+	\begin{figure}[ht!]
+	    \begin{subfigure}[b]{0.4\textwidth}
+		\includegraphics[width=\textwidth]{${4:img path 1}}
+		    \centering
+		\caption{${2:caption1}}
+		\label{fig:$2}
+	    \end{subfigure}
+	    \begin{subfigure}[b]{0.4\textwidth}
+	    \centering
+		\includegraphics[width=\textwidth]{${5:img path 2}}
+		\caption{${3:caption2}}
+		\label{fig:$3}
+	    \end{subfigure}
+
+	    \caption{${1:general caption}}
+	    \label{fig:multi}
+	\end{figure}
 # Paragraph
 snippet par
-	\paragraph{${1:paragraph name}} % (fold)
+	\paragraph{${1:paragraph name}}
 	\label{par:${2:$1}}
 	${3}
 	% paragraph $2 (end)
-# Sub Paragraph
-snippet subp
-	\subparagraph{${1:subparagraph name}} % (fold)
-	\label{subp:${2:$1}}
+# Part
+snippet part
+	\part{${1:part name}}
+	\label{prt:${2:$1}}
 	${3}
-	% subparagraph $2 (end)
-snippet itd
-	\item[${1:description}] ${2:item}
-snippet figure
-	${1:Figure}~\ref{${2:fig:}}${3}
-snippet table
-	${1:Table}~\ref{${2:tab:}}${3}
-snippet listing
-	${1:Listing}~\ref{${2:list}}${3}
-snippet section
-	${1:Section}~\ref{${2:sec:}}${3}
-snippet page
-	${1:page}~\pageref{${2}}${3}
+	% part $2 (end)
+# Questao
+snippet quest
+	\section*{Questão ${1:01}}
+	\textcolor[rgb]{0.1,0.1,0.1}{
+	${2:Questao}
+	}
+	\subsection*{Resposta} 
+	% Resposta
+# Section
+snippet sec
+	\section{${1:section name}} 
+	\label{sec:${2:$1}}
+	${3}
+	% section $2 (end)
+# add skeleton
+snippet skel
+	\documentclass[11pt]{article}
+
+	\usepackage[brazilian]{babel} % Portuguese
+	\usepackage[utf8]{inputenc} % Portugueses
+	\usepackage{amsmath} % math package
+	\usepackage{booktabs} % Portuguese
+	\usepackage{float} % respect H positional argument
+	\usepackage{fullpage} % minor margins
+	\usepackage{graphicx} % include figure
+	\usepackage{verbatim} % Portuguese
+
+	\graphicspath{{img/}}
+	\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+	\title{${1:env}}
+	\author{Eric Keiji}
+
+	\begin{document}
+	\maketitle
+	${2:Body}
+	\end{document}
+# Sub Section
+snippet sub
+	\subsection{${1:subsection name}} 
+	\label{sub:${2:$1}}
+	${3}
+	% subsection $2 (end)
+# Sub Subsection
+snippet subs
+	\subsubsection{${1:subsubsection name}} 
+	\label{ssub:${2:$1}}
+	${3}
+	% subsubsection $2 (end)
+# Sum
+snippet sum
+	\sum_{${1:i=0}}^{${2:N}} ${3}
+# Tabular
+snippet tab
+	\usepackage{booktabs} %Add to header
+
+	\begin{table}[ht!]
+		\caption{${1:Caption}}
+		\centering
+
+		\begin{tabular}{${3:ccc}}
+		\toprule
+		&\multicolumn{2}{c}{${4:columns header}} \\ \cmidrule{2-3}
+		${5:column names & &} \\ \midrule
+		\bottomrule
+		\label{tab:${2:mytable}}
+		\end{tabular}
+	\end{table}
+# texttt
+snippet tt
+	\texttt{${1:}} ${2:}
+# add package
+snippet use
+	\usepackage{${1:package}}${2}

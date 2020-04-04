@@ -1,0 +1,18 @@
+snippet article
+	 @ARTICLE{${1:ref},
+	 AUTHOR="${2:author}",
+	 TITLE="${3:title}",
+	 JOURNAL="${4:journal}",
+	 VOLUME= "${5:volume}",
+	 ISSUE = "${6:issue}",
+	 PAGES= "${7:pages}",
+	 YEAR=${8:year}
+	 }
+snippet book
+	 @book{${1:name},
+		 author    = {${2:title}}, 
+		 title     = {${3:title}},
+		 publisher = {${4:publisher}},
+		 year      = ${5:year},
+		 edition   = ${6:edition},
+	 }

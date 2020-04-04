@@ -2,6 +2,19 @@
 snippet #!
 	#!/bin/bash
 	
+snippet slurm
+	#!/bin/bash
+
+	#SBATCH --job-name=ekt248${1:jobname}
+	#SBATCH --ntasks=${2:100}
+	#SBATCH --nodes=${3:4}
+	#SBATCH --time=${4:24:00:00}
+	#SBATCH --mem=10GB
+	#SBATCH --gres=gpu:1
+	#SBATCH --mail-user=tokudaek@gmail.com
+	
+	module purge
+	
 snippet if
 	if [[ ${1:condition} ]]; then
 		${2:#statements}
@@ -26,3 +39,44 @@ snippet case
 		${2:pattern})
 			${3};;
 	esac
+snippet skel
+	#!/bin/bash
+	set -e
+	##########################################################
+	# Script:    ${1:brief description}
+	# Author:    EricK.
+	##########################################################
+	
+	export SEP="##########################################################"
+
+	function help {
+		echo "
+		${SEP}
+		Usage: $(basename -- "$${0:0}") [OPTIONS]
+		$1
+		-h, --help	optional  Print this help message
+		${2:-o <outdir>	optional  store output here.}
+		${SEP}"
+		exit 0
+	}
+
+	if [ "$${0:1}" == "-h" ] || [ "$${0:1}" == "--help" ]; then
+		help
+		exit 1;
+	fi
+
+	function main {
+		ARGS=$@
+		if [ "$#" -lt 1 ]; then
+			echo "Missing arguments. Please check --help."
+			exit 1
+		fi
+		CMD='echo Test'$SEP'.'
+		echo $SEP && echo $CMD
+		eval $CMD
+
+		${3: # Put code here. Change Help function}
+
+	}
+
+	main "$@"
