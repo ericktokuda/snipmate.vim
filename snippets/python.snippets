@@ -14,6 +14,7 @@ snippet skel
 
 	import numpy as np
 
+	##########################################################
 	def main():
 		info(inspect.stack()[0][3] + '()')
 		t0 = time.time()
@@ -56,14 +57,15 @@ snippet deb
 snippet in
 	info('${1:0}:{}'.format($1))${2}
 snippet def
-	def ${1:fname}(${2:params}):
+	##########################################################
+	def ${1:fname}(${2:outdir}):
 	    """${3:short-description}
 
 	    Args:
-	    ${4:$2}
+	    ${4:$2}(str): ${5:output dir}
 
 	    Returns:
-	    ${5:ret}
+	    ${6:ret}
 	    """
 	    info(inspect.stack()[0][3] + '()')
 
