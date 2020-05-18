@@ -132,6 +132,10 @@ snippet def
 	    """
 	    info(inspect.stack()[0][3] + '()')
 	    ${5:if not os.path.exists(outdir): os.mkdir(outdir)}
+snippet for
+	for ${1:i, x} in enumerate(${2:mylist}):
+	    ${3:print($1)}
+
 
 snippet ifmain
 	def main():
