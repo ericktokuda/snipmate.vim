@@ -127,17 +127,11 @@ snippet in
 snippet def
 	##########################################################
 	def ${1:fname}(${2:outdir}):
-	    """${3:short-description}
-
-	    Args:
-	    ${4:$2}(str): ${5:output dir}
-
-	    Returns:
-	    ${6:ret}
+	    """Do blah blah.
+	    Receives ${3:$2} and returns a ${4:ret}
 	    """
 	    info(inspect.stack()[0][3] + '()')
-
-	    ${6:pass}
+	    ${5:if not os.path.exists(outdir): os.mkdir(outdir)}
 
 snippet ifmain
 	def main():
