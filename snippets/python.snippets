@@ -27,7 +27,7 @@ snippet skel
 	    info(inspect.stack()[0][3] + '()')
 	    t0 = time.time()
 	    parser = argparse.ArgumentParser(description=__doc__)
-	    parser.add_argument('--outdir', default='/tmp/', help='Output directory')
+	    parser.add_argument('--outdir', default='/tmp/out/', help='Output directory')
 	    args = parser.parse_args()
 
 	    if not os.path.isdir(args.outdir): os.mkdir(args.outdir)
