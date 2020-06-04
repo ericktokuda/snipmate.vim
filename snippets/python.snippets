@@ -127,11 +127,10 @@ snippet in
 snippet def
 	##########################################################
 	def ${1:fname}(${2:outdir}):
-	    """Do blah blah.
-	    Receives ${3:$2} and returns a ${4:ret}
+	    """${3:Short description}
+	    Receives ${4:$2} and returns a ${5:ret}
 	    """
 	    info(inspect.stack()[0][3] + '()')
-	    ${5:if not os.path.exists(outdir): os.mkdir(outdir)}
 snippet for
 	for ${1:i, x} in enumerate(${2:mylist}):
 	    ${3:print($1)}
