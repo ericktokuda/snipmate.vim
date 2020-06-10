@@ -40,6 +40,9 @@ snippet skel
 	if __name__ == "__main__":
 	    main()
 
+snippet mkdir
+	if not os.path.isdir(outdir): os.mkdir(outdir)
+
 snippet multi
 	#!/usr/bin/env python3
 	"""${1:one-line docstring}
@@ -99,7 +102,6 @@ snippet multi
 	if __name__ == "__main__":
 	    main()
 
-
 snippet br
 	breakpoint()
 	${1}
@@ -124,11 +126,12 @@ snippet deb
 	debug('${1:0}:{}'.format($1))${2}
 snippet in
 	info('${1:0}:{}'.format($1))${2}
+snippet df
+	df = pd.read_csv(${1:csvpath})
 snippet def
 	##########################################################
 	def ${1:fname}(${2:outdir}):
 	    """${3:Short description}
-	    Receives ${4:$2} and returns a ${5:ret}
 	    """
 	    info(inspect.stack()[0][3] + '()')
 snippet for
