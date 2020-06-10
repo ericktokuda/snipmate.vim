@@ -39,10 +39,9 @@ snippet skel
 	##########################################################
 	if __name__ == "__main__":
 	    main()
-
 snippet mkdir
-	if not os.path.isdir(outdir): os.mkdir(outdir)
-
+	if not os.path.isdir(${1:outdir}): os.mkdir($1)
+	${2}
 snippet multi
 	#!/usr/bin/env python3
 	"""${1:one-line docstring}
@@ -101,7 +100,6 @@ snippet multi
 
 	if __name__ == "__main__":
 	    main()
-
 snippet br
 	breakpoint()
 	${1}
@@ -122,8 +120,6 @@ snippet cl
 			self.${6:$5} = []
 		${7}
 # New Function
-snippet deb
-	debug('${1:0}:{}'.format($1))${2}
 snippet in
 	info('${1:0}:{}'.format($1))${2}
 snippet df
@@ -137,14 +133,6 @@ snippet def
 snippet for
 	for ${1:i, x} in enumerate(${2:mylist}):
 	    ${3:print($1)}
-
-
-snippet ifmain
-	def main():
-		${1:}
-	if __name__ == '__main__':
-		main()
-# print
 snippet pr
 	print(${1:0})
 snippet try Try/Except
