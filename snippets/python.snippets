@@ -31,6 +31,7 @@ snippet skel
 	    args = parser.parse_args()
 
 	    if not os.path.isdir(args.outdir): os.mkdir(args.outdir)
+	    open(pjoin(args.outdir, 'call'), 'w').write('#python ' + ' '.join(sys.argv))
 
 	    ${2:info('For Aiur!')}
 
@@ -39,7 +40,7 @@ snippet skel
 	##########################################################
 	if __name__ == "__main__":
 	    main()
-snippet mkdir
+snippet mk
 	if not os.path.isdir(${1:outdir}): os.mkdir($1)
 	${2}
 snippet multi
@@ -145,3 +146,9 @@ snippet subpl
 	    figscale = 2
 	    fig, axs = plt.subplots(nrows, ncols, squeeze=False,
 				    figsize=(ncols*figscale, nrows*figscale))
+	    for	ii in range(nrows):
+	        for jj in range(ncols):
+		    axs[ii, jj].plot()
+		    axs[ii, jj].set_xlabel()
+		    axs[ii, jj].set_ylabel()
+	    plt.savefig(outpath)
