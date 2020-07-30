@@ -44,50 +44,13 @@ snippet mk
 	if not os.path.isdir(${1:outdir}): os.mkdir($1)
 	${2}
 snippet multi
-	#!/usr/bin/env python3
-	"""${1:one-line docstring}
-	"""
+	# from multiprocessing import Pool
 
-	import argparse
-	import time
-	import os
-	from os.path import join as pjoin
-	import inspect
-
-	import sys
-	import numpy as np
-	from itertools import product
-	import matplotlib; matplotlib.use('Agg')
-	import matplotlib.pyplot as plt
-	from multiprocessing import Pool
-	from datetime import datetime
-
-	#############################################################
-	def info(*args):
-	    pref = datetime.now().strftime('[%y%m%d %H:%M:%S]')
-	    print(pref, *args, file=sys.stdout)
-
-	#############################################################
-	def run_experiment(params_):
-	    info(inspect.stack()[0][3] + '()')
-	    ${2:info('For Aiur!')}
-
-	##########################################################
-	def main():
-	    info(inspect.stack()[0][3] + '()')
-	    t0 = time.time()
-	    parser = argparse.ArgumentParser(description=__doc__)
-	    parser.add_argument('--nprocs', type=int, default=1, help='nprocs')
-	    parser.add_argument('--outdir', default='/tmp/', help='Output directory')
-	    args = parser.parse_args()
-
-	    if not os.path.isdir(args.outdir): os.mkdir(args.outdir)
-
-	    aux = list(product([args.outdir]))
+	    aux = list(product([args.outdir, ])) # Fill here
 
 	    params = []
 	    for i, row in enumerate(aux):
-	        params.append(dict(outdir = row[0],))
+	        params.append(dict(outdir = row[0],)) # and here
 
 	    if args.nprocs == 1:
 	        info('Running serially (nprocs:{})'.format(args.nprocs))
@@ -128,8 +91,7 @@ snippet df
 snippet def
 	##########################################################
 	def ${1:fname}(${2:outdir}):
-	    """${3:Short description}
-	    """
+	    """${3:Short description} """
 	    info(inspect.stack()[0][3] + '()')
 snippet for
 	for ${1:i, x} in enumerate(${2:mylist}):
