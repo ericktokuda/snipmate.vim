@@ -12,15 +12,9 @@ snippet skel
 
 	import sys
 	import numpy as np
-	from itertools import product
 	import matplotlib; matplotlib.use('Agg')
 	import matplotlib.pyplot as plt
-	from datetime import datetime
-
-	#############################################################
-	def info(*args):
-	    pref = datetime.now().strftime('[%y%m%d %H:%M:%S]')
-	    print(pref, *args, file=sys.stdout)
+	from myutils import info, create_readme
 
 	##########################################################
 	def main():
@@ -31,11 +25,12 @@ snippet skel
 	    args = parser.parse_args()
 
 	    if not os.path.isdir(args.outdir): os.mkdir(args.outdir)
-	    open(pjoin(args.outdir, 'call'), 'w').write('#python ' + ' '.join(sys.argv))
+	    readmepath = create_readme(sys.argv, args.outdir)
 
 	    ${2:info('For Aiur!')}
 
 	    info('Elapsed time:{}'.format(time.time()-t0))
+	    info('Output generated in {}'.format(args.outdir))
 
 	##########################################################
 	if __name__ == "__main__":
