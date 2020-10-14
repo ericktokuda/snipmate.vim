@@ -98,6 +98,11 @@ snippet try Try/Except
 		${1:pass}
 	except ${2:Exception}, ${3:e}:
 		${4:raise $3}
+snippet pl
+	W = 640; H = 480
+	fig, ax = plt.subplots(figsize=(W*.01, H*.01), dpi=100)
+	outpath = '/tmp/foo.png'
+	plt.savefig(outpath)
 snippet subpl
 	    nrows = 1;  ncols = 1
 	    figscale = 2
