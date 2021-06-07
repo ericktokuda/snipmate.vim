@@ -5,7 +5,7 @@ snippet skel
 	"""
 
 	import argparse
-	import time
+	import time, datetime
 	import os
 	from os.path import join as pjoin
 	import inspect
@@ -18,7 +18,7 @@ snippet skel
 
 	##########################################################
 	def main():
-	    info(inspect.stack()[0][3] + '()')
+	    info(datetime.date.today())
 	    t0 = time.time()
 	    parser = argparse.ArgumentParser(description=__doc__)
 	    parser.add_argument('--outdir', default='/tmp/out/', help='Output directory')
@@ -29,7 +29,7 @@ snippet skel
 
 	    ${2:info('For Aiur!')}
 
-	    info('Elapsed time:{}'.format(time.time()-t0))
+	    info('Elapsed time:{:.02f}s'.format(time.time()-t0))
 	    info('Output generated in {}'.format(args.outdir))
 
 	##########################################################
