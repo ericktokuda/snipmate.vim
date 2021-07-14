@@ -105,6 +105,7 @@ snippet try Try/Except
 snippet pl
 	W = 640; H = 480
 	fig, ax = plt.subplots(figsize=(W*.01, H*.01), dpi=100)
+	${1:ax.scatter(x, y)}
 	outpath = '/tmp/foo.png'
 	plt.savefig(outpath)
 snippet subpl
