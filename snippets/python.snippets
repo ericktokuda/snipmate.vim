@@ -22,7 +22,10 @@ snippet skel
 	    info(inspect.stack()[0][3] + '()')
 
 	    ${3:info('For Aiur!')}
+			doneflag = pjoin(outdir, 'DONE')
 
+
+	    open(doneflag, 'a').write(time.ctime())
 
 	##########################################################
 	if __name__ == "__main__":
