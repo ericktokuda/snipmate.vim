@@ -17,13 +17,11 @@ snippet skel
 	from myutils import info, create_readme
 
 	##########################################################
-	def ${2:main}(outdir):
-	    """Short description"""
+	def main(outdir):
 	    info(inspect.stack()[0][3] + '()')
 
-	    ${3:info('For Aiur!')}
-			doneflag = pjoin(outdir, 'DONE')
-
+	    ${2:info('For Aiur!')}
+	    doneflag = pjoin(outdir, 'DONE')
 
 	    open(doneflag, 'a').write(time.ctime())
 
@@ -38,7 +36,7 @@ snippet skel
 	    os.makedirs(args.outdir, exist_ok=True)
 	    readmepath = create_readme(sys.argv, args.outdir)
 
-	    $2(args.outdir)
+	    main(args.outdir)
 
 	    info('Elapsed time:{:.02f}s'.format(time.time()-t0))
 	    info('Output generated in {}'.format(args.outdir))
