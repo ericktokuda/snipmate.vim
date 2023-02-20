@@ -19,10 +19,14 @@ snippet skel
 	##########################################################
 	def main(outdir):
 	    info(inspect.stack()[0][3] + '()')
+	    doneflag = pjoin(outdir, 'DONE')
+			#if os.path.exists(doneflag):
+			#  info('We may want to know if it ended!')
+	    #  return	
 
 	    ${2:info('For Aiur!')}
 
-	    open(pjoin(outdir, 'DONE'), 'a').write(time.ctime())
+	    open(doneflag, 'a').write(time.ctime())
 
 	##########################################################
 	if __name__ == "__main__":
