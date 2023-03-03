@@ -72,6 +72,14 @@ snippet br
 	${1}
 snippet imp
 	import ${1:module}
+snippet imsh
+	W = 640; H = 480
+	fig, ax = plt.subplots(figsize=(W*.01, H*.01), dpi=100)
+	im = ax.imshow(DATA)
+	divider = make_axes_locatable(ax)
+	cax = divider.append_axes('right', size='5%', pad=.05)
+	plt.colorbar(im, cax=cax)
+	plt.savefig(outpath)
 snippet cl
 	class ${1:ClassName}:
 		"""${2:short-description}
